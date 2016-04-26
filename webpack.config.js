@@ -8,7 +8,6 @@ var config = {
     publicPath: 'http://localhost:8080/dist/'
   },
   resolve: {
-    // packageMains: ['webpack', 'browser', 'web', 'browserify', ['jam', 'main'], 'main'],
     extensions: ['', '.js', '.jsx', '.less']
   },
   // devtool: '#source-map',
@@ -29,7 +28,12 @@ var config = {
   },
   plugins: [
     new HtmlWebpackPlugin()
-  ]
+  ],
+  externals: {
+    // electron: 'require("electron")',
+    remote: 'require("remote")'// ,
+    // app: 'require("app")'
+  }
 }
 
 module.exports = config

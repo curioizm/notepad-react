@@ -2,6 +2,44 @@
 
 let app = require('app')
 let BrowserWindow = require('browser-window')
+let Menu = require('menu')
+
+const template = [
+  {
+    label: 'ファイル(&F)',
+    submenu: [
+      {
+        label: '新規(&N)',
+        accelerator: 'Ctrl+N',
+        click: () => { console.log('aaa!') }
+      },
+      {
+        label: '開く(&O)...',
+        accelerator: 'Ctrl+O'
+      }
+    ]
+  },
+  {
+    label: '編集(&E)'
+  },
+  {
+    label: '書式(&O)',
+    submenu: [
+      {
+        label: '右端で折り返す(&W)',
+        type: 'checkbox'
+      }
+    ]
+  },
+  {
+    label: '表示(&V)'
+  },
+  {
+    label: 'ヘルプ(&H)'
+  }
+]
+
+Menu.setApplicationMenu(Menu.buildFromTemplate(template))
 
 require('crash-reporter').start()
 
@@ -14,6 +52,6 @@ app.on('window-all-closed', () => {
 app.on('ready', () => {
   let mainWindow = new BrowserWindow({ width: 800, height: 600 })
   mainWindow.loadURL(`file://${__dirname}/dist/index.html`)
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
   mainWindow.on('closed', () => { mainWindow = null })
 })
