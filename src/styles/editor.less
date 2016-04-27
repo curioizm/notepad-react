@@ -17,9 +17,18 @@ textarea {
   // border: 0;
   box-sizing: border-box;
   // outline: none;
-  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: scroll;
   resize: none;
   height: 100%;
   width: 100%;
-  word-wrap: normal;  // 折り返しの設定（設定できるようにする）
+  // word-wrap: normal;  // 折り返しの設定（設定できるようにする）
+}
+
+.wdwp-normal {
+  word-wrap: normal;
+}
+
+.wdwp-break {
+  word-wrap: break-word;
 }

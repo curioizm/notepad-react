@@ -30,9 +30,8 @@ var config = {
     new HtmlWebpackPlugin()
   ],
   externals: {
-    // electron: 'require("electron")',
-    remote: 'require("remote")'// ,
-    // app: 'require("app")'
+    remote: 'require("remote")',
+    ipc: 'require("ipc")'
   }
 }
 

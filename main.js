@@ -4,6 +4,9 @@ let app = require('app')
 let BrowserWindow = require('browser-window')
 let Menu = require('menu')
 
+let mainWindow = null
+let chkWordWrap = false
+
 const template = [
   {
     label: 'ファイル(&F)',
@@ -27,7 +30,12 @@ const template = [
     submenu: [
       {
         label: '右端で折り返す(&W)',
-        type: 'checkbox'
+        type: 'checkbox',
+        checked: chkWordWrap,
+        click: () => {
+          chkWordWrap = !chkWordWrap
+          mainWindow.webContents.send('wordWrap', chkWordWrap)
+        }
       }
     ]
   },
@@ -50,7 +58,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('ready', () => {
-  let mainWindow = new BrowserWindow({ width: 800, height: 600 })
+  mainWindow = new BrowserWindow({ width: 800, height: 600 })
   mainWindow.loadURL(`file://${__dirname}/dist/index.html`)
   mainWindow.webContents.openDevTools()
   mainWindow.on('closed', () => { mainWindow = null })
