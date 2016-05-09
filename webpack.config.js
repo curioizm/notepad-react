@@ -31,7 +31,7 @@ var config = {
   ],
   externals: {
     remote: 'require("remote")',
-    ipc: 'require("ipc")'
+    ipcRenderer: 'require("electron").ipcRenderer'
   }
 }
 

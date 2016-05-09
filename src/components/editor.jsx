@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import ipc from 'ipc'
+import ipcRenderer from 'ipcRenderer'
 
 require('../styles/editor')
 
@@ -17,7 +17,7 @@ export default class Editor extends React.Component {
     }
   }
   componentDidMount () {
-    ipc.on('wordWrap', (msg) => {
+    ipcRenderer.on('wordWrap', (ev, msg) => {
       this.setState({ check: msg })
     })
   }

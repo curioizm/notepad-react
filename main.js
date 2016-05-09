@@ -19,11 +19,37 @@ const template = [
       {
         label: '開く(&O)...',
         accelerator: 'Ctrl+O'
+      },
+      {
+        label: '上書き保存(&S)',
+        accelerator: 'Ctrl+S'
+      },
+      {
+        label: '名前を付けて保存(&A)...'
+      },
+      { type: 'separator' },
+      {
+        label: 'ページ設定(&U)...'
+      },
+      {
+        label: '印刷(&P)...',
+        accelerator: 'Ctrl+P'
+      },
+      { type: 'separator' },
+      {
+        label: 'メモ帳の終了(&X)'
       }
     ]
   },
   {
-    label: '編集(&E)'
+    label: '編集(&E)',
+    submenu: [
+      {
+        label: '元に戻す(&U)',
+        accelerator: 'Ctrl+Z'
+      },
+      { type: 'separator' }
+    ]
   },
   {
     label: '書式(&O)',
@@ -40,10 +66,20 @@ const template = [
     ]
   },
   {
-    label: '表示(&V)'
+    label: '表示(&V)',
+    submenu: [
+      {
+        label: 'ステータスバー(&S)'
+      }
+    ]
   },
   {
-    label: 'ヘルプ(&H)'
+    label: 'ヘルプ(&H)',
+    submenu: [
+      {
+        label: 'ヘルプの表示(&H)'
+      }
+    ]
   }
 ]
 
